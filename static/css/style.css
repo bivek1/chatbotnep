@@ -1,0 +1,396 @@
+@font-face {
+    font-family: heading;
+    src: url('../fonts/Comfortaa/Comfortaa-VariableFont_wght.ttf');
+}
+
+
+@font-face {
+    font-family: paragraph;
+    src: url('../fonts/Oswald/Oswald-VariableFont_wght.ttf');
+}
+
+
+@font-face {
+    font-family: normals;
+    src: url('../fonts/Saira_Condensed/SairaCondensed-Regular.ttf');
+}
+
+h1, h2, h3{
+    font-family: sans-serif;
+
+}
+.studentbox{
+  cursor: pointer;
+  position: relative;  
+}
+
+.dasbox{
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+}
+.studentbox img{
+  position: relative;
+  height: 350px;
+  width: 100%;
+  /* filter:brightness(80%); */
+
+  
+}
+.stuboxdes {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; 
+ 
+  transition: height 0.5s ease;
+}
+
+.stuboxdes{
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  padding: 10px; 
+  background-color: rgba(255, 255, 255, 0.8); 
+  width: 100%;
+  box-sizing: border-box; 
+
+}
+
+.stuboxdes2{
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  padding: 10px; 
+  background-color: rgba(89, 169, 255, 0.8); 
+  width: 100%;
+  box-sizing: border-box; 
+
+}
+
+.stuboxdes3{
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  padding: 10px; 
+  background-color: rgba(161, 157, 255, 0.8); 
+  width: 100%;
+  box-sizing: border-box; 
+
+}
+
+.stuboxdes4{
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  padding: 10px; 
+  background-color: rgba(250, 157, 255, 0.8); 
+  width: 100%;
+  box-sizing: border-box; 
+
+}
+.studentbox:hover, img{
+  filter:brightness(100%);
+  
+}
+.stuboxdesMain{
+  position: absolute;
+  bottom: 0; 
+  left: 0; 
+  padding: 10px; 
+  background-color: rgba(162, 253, 255, 0.8); 
+  width: 100%;
+  box-sizing: border-box; 
+
+}
+.groupBox {
+  position: relative;
+}
+.groupBox img{
+  filter:brightness(40%);
+  height: 700px;
+  width: 100%;
+  
+}
+.conIcon{
+  font-size: 60px;
+}
+.contactbg{
+  background-image: url('../images/contact.avif');
+  background-size: cover;
+}
+.contactbox{
+ 
+  width: 80%;
+  background-color: white;
+}
+.contactPlace{
+  height: 400px;
+  background-image: url('../images/contact.webp');
+  background-size: cover;
+}
+.groupBox:hover img{
+  filter:brightness(80%);
+
+}
+
+.grpboxdes{
+  position: absolute;
+  left: 0;
+ 
+  transform: translateY(50%);
+  box-sizing: border-box;
+  padding: 10px; 
+  bottom: 50%;
+  width: 100%;
+  box-sizing: border-box; 
+
+}
+h4, h5, h6{
+    font-family: paragraph;
+}
+p, small, .nav-link{
+    font-family: normals;
+}
+
+.frontHead{
+    font-size: 70px;
+
+    font-weight: bold;
+}
+
+.btn-primary{
+    height: 40px;
+    border: none;
+    color:white;
+    background-color:#022f72;
+}
+
+.navbar-brand img{
+    height: 60px;
+    width: auto;
+}
+
+  
+  .form-control {
+    border: none;
+   
+    border-radius: 0;
+    padding: 10px;
+
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    transition: all 0.3s ease;
+  }
+  .about-box{
+    width: 100%;
+  }
+  .imageBox{
+    background-color: rgb(221, 239, 255);
+  }
+  .about-content{
+    background-color: rgb(207, 233, 255);
+  }
+  .about-content h4{
+    background-color: rgb(121, 191, 252);
+  }
+  
+  .imageBox{
+    position: relative;
+    height: 200px;
+  }
+  .imageBox img{
+    height: 230px;
+    width: auto;
+    position: absolute;
+    position: absolute;
+   
+    top: 60px;
+    transform: translate(-50%, -50%);
+  }
+  .form-control:focus {
+    outline: none;
+    border: none;
+    border-bottom:2px solid rgb(3, 49, 98)bdff; 
+  }
+
+  .form-control:active {
+    outline: none;
+    border: none;
+    border-bottom:2px solid rgb(3, 49, 98)bdff; 
+  }
+  .login-input i{
+    font-size: 30px;
+  }
+  .login-img{
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    border: 2px solod #022445;
+    border-radius: 50%;
+  }
+  .hide-phone img{
+    height: 100%;
+    width: 100%;
+  }
+
+.testoBox img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+.testoBox{
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.twoBox{
+    background-color: white;
+    height: 300px;
+    border-radius: 18px;
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+}
+
+.two-icon{
+    margin-top: 20px;
+    font-size: 100px;
+    color: #0d2747;
+}
+
+ul{
+    list-style: none;
+}
+li{
+    list-style: none;
+    padding: 10px;
+    font-family: normals;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.teambelow {
+    padding: 20px;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 70%;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+   
+}
+.teamSection{
+    height: auto;
+}
+.teamBox{
+    height: 400px;
+}
+
+.maintain-main{
+    height: 60px;
+}
+.maintain{
+    height: 40px;
+}
+
+.teamBox img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 2px solid blue;
+    position: absolute;
+    top: -60%; 
+    transform: translateX(-50%);
+    z-index: 1; 
+}
+
+/* Login Page Styling */
+.login-div{
+    background-color: #d0e5ff;
+    background-size: 100% 100%;
+    height: 100vh;
+}
+.login-box{
+    width: 70%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    height: auto;
+}
+.login-img img{
+    height: auto;
+    width: 100%;
+}
+.login-input {
+    position: relative;
+  }
+  
+  .icon {
+    position: absolute;
+    top: 50%;
+    margin-left: 5px;
+    left: 0.5rem;
+    transform: translateY(-50%);
+    color: #666; /* Adjust color as needed */
+  }
+  
+  .form-control {
+    padding-left: 2.5rem; /* Adjust padding to accommodate the icon */
+  }
+  
+
+
+.contact-div img{
+    height: auto;
+    width: 100%;
+}
+.contactIconBox{
+    background-color: #022445;
+    border-radius: 50%;
+    height: 240px;
+    width: 240px;
+    color: white;
+}
+
+.courseBox img{
+    height: 200px;
+    width: 100%;
+   
+}
+.courseBox{
+    border: 1px solid grey;
+    border-radius: 5px;
+    overflow: hidden;
+}
+#blogImage{
+  height: 400px;
+ 
+
+  width: 100%;
+}
+
+.blogImage{
+  height: 100px;
+  width: 20%;
+  margin: auto 0;
+  border-radius: 10px;
+}
+.similarBox{
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.grpboxdes h1{
+
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.abtimg img{
+ width:80%
+}

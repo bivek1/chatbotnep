@@ -1,0 +1,140 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="mt-5 p-0">
+    <div class="row p-0 m-0 m-auto">
+        {% for i in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong></strong> {{ i }}
+        </div>
+        {% endfor %}
+
+        <div class="d-flex justify-content-between mb-4">
+            <h4>Hello {{ user.username }}</h4>
+            <a href="{% url 'system:logout' %}">
+                <button class="btn btn-sm btn-light">
+                    <i class="fa fa-user"></i>
+                    Logout
+                </button>
+            </a>
+        </div>
+
+        <div class="container-fluid">
+            <div class="row p-2">
+                <div class="col-lg-3 bg-primary p-2">
+                   <a href="{%url 'system:dashboard'%}">
+                        <div class="card p-2">
+                            <p>Dashboard</p>
+                        </div>
+                   </a>
+                   <br>
+
+                    <div class="card p-2">
+                        <p>{{ chatbot.name }}</p>
+                    </div>
+        
+
+                    {% if not chatbot %}
+                    <div data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <div class="card">
+                            <i class="fa fa-add my-auto"></i> <p class="ms-3 text-center">Create new chatbot</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Create a new chatbot</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Our chatbot supports Nepali Language</p>
+                                    <hr>
+                                    <form action="" method="post">
+                                        <input type="text" name="chatbot" id="" class="form-control" placeholder="Add chatbot name here...">
+                                        {% csrf_token %}
+                                        <br>
+                                        <button type="submit" class="btn btn-light">Create Now</button>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Quit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9 bg-secondary p-2">
+                    <br>
+                    
+                    {% if faq %}
+                    <div class="text-center ">
+                        <a href="{%url 'system:train' chatbot.id%}">
+                            <div class="btn btn-danger">
+                                <p class="text-light">
+                                    You have added faq data train and generate chatbot based on your data
+                                </p>
+                                <h4 class="text-light">
+                                    <i class="fa fa-add"></i> Train chatbot
+                                </h4>
+                            </div>
+                        </a>
+                        
+                      
+                    </div>
+                    <br><br>
+                        
+                    {% endif %}
+                        
+                    {% if chatbot %}
+                        <div id="question-answer-container">
+                            <div class="card p-2 mb-2">
+                                <h5 class="card-title">Add Questions and Answers</h5>
+                                <form id="qa-form" action="" method="post">
+                                    
+                                    {% csrf_token %}
+                                    <div id="qa-fields">
+                                        <div class="qa-field mb-3">
+                                            <div class="mb-3">
+                                                <input type="text" name="questions[]" class="form-control" placeholder="Question">
+                                            </div>
+                                            <div class="mb-3">
+                                                <textarea name="answers[]" class="form-control" rows="3" placeholder="Answer"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button type="button" id="add-field" class="btn btn-primary mb-3">+ Add More</button>
+                                    <br>
+                                    <button type="submit" class="btn btn-success d-block w-100">Save data</button>
+                                </form>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('add-field').addEventListener('click', function() {
+        var container = document.getElementById('qa-fields');
+        var newField = document.createElement('div');
+        newField.className = 'qa-field mb-3';
+        newField.innerHTML = `
+            <div class="mb-3">
+                <input type="text" name="questions[]" class="form-control" placeholder="Question">
+            </div>
+            <div class="mb-3">
+                <textarea name="answers[]" class="form-control" rows="3" placeholder="Answer"></textarea>
+            </div>
+        `;
+        container.appendChild(newField);
+    });
+</script>
+
+{% endblock content %}

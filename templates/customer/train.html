@@ -1,0 +1,79 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="mt-5 p-0">
+    <div class="row p-0 m-0 m-auto">
+        {% for i in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong></strong> {{ i }}
+        </div>
+        {% endfor %}
+
+        <div class="d-flex justify-content-between mb-4">
+            <h4>Hello {{ user.username }}</h4>
+            <a href="{% url 'system:logout' %}">
+                <button class="btn btn-sm btn-light">
+                    <i class="fa fa-user"></i>
+                    Logout
+                </button>
+            </a>
+        </div>
+
+       
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-lg-2">
+            <a href="{%url 'system:dashboard'%}">
+                <div class="card p-2">
+                    <p>Dashboard</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-lg-10">
+            <div class="chat-container">
+                <div id="chat-box" style="height: 400px; overflow-y: auto; border: 1px solid #ddd; padding: 10px;">
+                    <!-- Messages will be appended here -->
+                </div>
+                <div class="input-group mt-3">
+                    <input type="text" id="user-question" class="form-control" placeholder="Ask your question...">
+                    <button class="btn btn-primary" id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+   
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#send-button').click(function(){
+            var question = $('#user-question').val();
+            var chatbot_id = "{{ chatbot_id }}"; // Pass the chatbot ID
+
+            if(question.trim() !== ""){
+                $('#chat-box').append('<div><strong>You:</strong> ' + question + '</div>');
+                $.ajax({
+                    url: "{% url 'system:get_answer' %}",
+                    data: {
+                        'question': question,
+                        'chatbot_id': chatbot_id,
+                    },
+                    success: function(response){
+                        $('#chat-box').append('<div><strong>Bot:</strong> ' + response.answer + '</div>');
+                        $('#chat-box').scrollTop($('#chat-box')[0].scrollHeight); // Auto scroll to the bottom
+                    },
+                    error: function(){
+                        $('#chat-box').append('<div><strong>Bot:</strong> Error fetching answer.</div>');
+                    }
+                });
+            }
+            $('#user-question').val(''); // Clear the input field
+        });
+    });
+</script>
+{% endblock content %}
